@@ -67,12 +67,12 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text)
+        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text as? Any)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.frame.width/7
-        return CGSize(width: width, height: width)
+        let totalWidth = self.frame.width
+        return CGSize(width: totalWidth/7, height: 40)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -80,10 +80,12 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        let totalMargin = self.frame.width - CGFloat(40*7)
+//        return totalMargin/9
         return 0
     }
 
