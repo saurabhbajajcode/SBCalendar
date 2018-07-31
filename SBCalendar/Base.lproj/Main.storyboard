@@ -62,7 +62,9 @@
                                     <constraint firstAttribute="height" constant="40" id="zUD-cx-bt7"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="leftButton" destination="aHd-G2-ADu" id="GMa-tJ-Qzl"/>
                                     <outlet property="monthLabel" destination="3iW-qH-O95" id="SOP-Cy-jao"/>
+                                    <outlet property="rightButton" destination="Bmf-0k-LbA" id="lkg-ML-AaA"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldu-F9-GHV">
