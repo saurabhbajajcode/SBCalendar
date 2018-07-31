@@ -81,11 +81,15 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text as? Any)
+        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let totalWidth = self.frame.width
+        let totalWidth = self.frame.width - 16
         return CGSize(width: totalWidth/7, height: 40)
     }
 
@@ -94,12 +98,13 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        if UIApplication.shared.statusBarOrientation == .landscapeLeft || UIApplication.shared.statusBarOrientation == .landscapeRight {
+            return 0
+        }
+        return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        let totalMargin = self.frame.width - CGFloat(40*7)
-//        return totalMargin/9
         return 0
     }
 
