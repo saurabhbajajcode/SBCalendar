@@ -16,6 +16,10 @@
 		F311EFBE21102107004131DC /* SBCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFBD21102107004131DC /* SBCalendarTests.swift */; };
 		F311EFC921102107004131DC /* SBCalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFC821102107004131DC /* SBCalendarUITests.swift */; };
 		F311EFD721102A9B004131DC /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFD621102A9B004131DC /* MonthView.swift */; };
+		F311EFD921103F06004131DC /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFD821103F06004131DC /* WeekdaysView.swift */; };
+		F311EFDB21103F63004131DC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDA21103F63004131DC /* CalendarView.swift */; };
+		F311EFDD211045D9004131DC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDC211045D9004131DC /* AppManager.swift */; };
+		F311EFDF21104B12004131DC /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDE21104B12004131DC /* DaysCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		F311EFC821102107004131DC /* SBCalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBCalendarUITests.swift; sourceTree = "<group>"; };
 		F311EFCA21102107004131DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F311EFD621102A9B004131DC /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		F311EFD821103F06004131DC /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysView.swift; sourceTree = "<group>"; };
+		F311EFDA21103F63004131DC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		F311EFDC211045D9004131DC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		F311EFDE21104B12004131DC /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,10 @@
 				F311EFB421102107004131DC /* Info.plist */,
 				F311EFAC21102105004131DC /* SBCalendar.xcdatamodeld */,
 				F311EFD621102A9B004131DC /* MonthView.swift */,
+				F311EFD821103F06004131DC /* WeekdaysView.swift */,
+				F311EFDA21103F63004131DC /* CalendarView.swift */,
+				F311EFDC211045D9004131DC /* AppManager.swift */,
+				F311EFDE21104B12004131DC /* DaysCell.swift */,
 			);
 			path = SBCalendar;
 			sourceTree = "<group>";
@@ -262,9 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F311EFDD211045D9004131DC /* AppManager.swift in Sources */,
 				F311EFAE21102105004131DC /* SBCalendar.xcdatamodeld in Sources */,
+				F311EFDF21104B12004131DC /* DaysCell.swift in Sources */,
 				F311EFA821102105004131DC /* ViewController.swift in Sources */,
+				F311EFDB21103F63004131DC /* CalendarView.swift in Sources */,
 				F311EFA621102105004131DC /* AppDelegate.swift in Sources */,
+				F311EFD921103F06004131DC /* WeekdaysView.swift in Sources */,
 				F311EFD721102A9B004131DC /* MonthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

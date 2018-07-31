@@ -15,7 +15,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SBCalendar" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CalendarView" customModule="SBCalendar" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -127,17 +127,79 @@
                                     <constraint firstAttribute="height" constant="32" id="u5I-OX-5eQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkz-Lg-q5b">
+                                <rect key="frame" x="0.0" y="136" width="375" height="300"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e3u-aY-q7w">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="usd-9A-hVX">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="daysCell" id="iJj-Ix-yde" customClass="DaysCell" customModule="SBCalendar" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNV-re-V4K">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </view>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="jNV-re-V4K" secondAttribute="bottom" id="AcP-pA-GP5"/>
+                                                    <constraint firstItem="jNV-re-V4K" firstAttribute="top" secondItem="iJj-Ix-yde" secondAttribute="top" id="PNG-UV-SO2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jNV-re-V4K" secondAttribute="trailing" id="soo-4G-GYJ"/>
+                                                    <constraint firstItem="jNV-re-V4K" firstAttribute="leading" secondItem="iJj-Ix-yde" secondAttribute="leading" id="vbN-zW-Gn3"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="dayLabel" destination="jNV-re-V4K" id="70J-tX-Fjw"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="8bC-Xf-vdC" id="DrY-sQ-ey2"/>
+                                            <outlet property="delegate" destination="8bC-Xf-vdC" id="vWe-Sj-jDw"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="L92-1N-BJE"/>
+                                    <constraint firstAttribute="trailing" secondItem="e3u-aY-q7w" secondAttribute="trailing" id="aaR-Aa-KIz"/>
+                                    <constraint firstItem="e3u-aY-q7w" firstAttribute="leading" secondItem="pkz-Lg-q5b" secondAttribute="leading" id="eJP-Yv-lga"/>
+                                    <constraint firstAttribute="bottom" secondItem="e3u-aY-q7w" secondAttribute="bottom" id="iPu-pr-lHm"/>
+                                    <constraint firstItem="e3u-aY-q7w" firstAttribute="top" secondItem="pkz-Lg-q5b" secondAttribute="top" id="kAh-Zl-TKs"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="pkz-Lg-q5b" firstAttribute="top" secondItem="Ldu-F9-GHV" secondAttribute="bottom" id="1bX-1b-GRu"/>
+                            <constraint firstAttribute="trailing" secondItem="pkz-Lg-q5b" secondAttribute="trailing" id="9S4-DG-qh1"/>
                             <constraint firstItem="WbS-0b-qpn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Dlt-wS-TGG"/>
                             <constraint firstItem="Ldu-F9-GHV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GsB-Ds-w0j"/>
                             <constraint firstItem="WbS-0b-qpn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RRH-4C-3NJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ldu-F9-GHV" secondAttribute="trailing" id="aBX-gO-xjG"/>
+                            <constraint firstItem="pkz-Lg-q5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lBj-gN-wju"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WbS-0b-qpn" secondAttribute="trailing" id="uLg-Fv-Vw6"/>
                             <constraint firstItem="Ldu-F9-GHV" firstAttribute="top" secondItem="WbS-0b-qpn" secondAttribute="bottom" id="xzP-fA-sfI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="collectionView" destination="e3u-aY-q7w" id="8CG-zC-N6A"/>
+                            <outlet property="monthView" destination="WbS-0b-qpn" id="MYm-Sd-0Na"/>
+                            <outlet property="weekdaysView" destination="Ldu-F9-GHV" id="Z73-E9-JTg"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="rnv-V5-5nw"/>
                 </viewController>
