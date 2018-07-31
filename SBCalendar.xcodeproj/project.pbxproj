@@ -20,6 +20,7 @@
 		F311EFDB21103F63004131DC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDA21103F63004131DC /* CalendarView.swift */; };
 		F311EFDD211045D9004131DC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDC211045D9004131DC /* AppManager.swift */; };
 		F311EFDF21104B12004131DC /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDE21104B12004131DC /* DaysCell.swift */; };
+		F311EFE1211068DB004131DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFE0211068DB004131DC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		F311EFDA21103F63004131DC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F311EFDC211045D9004131DC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		F311EFDE21104B12004131DC /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
+		F311EFE0211068DB004131DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				F311EFDA21103F63004131DC /* CalendarView.swift */,
 				F311EFDC211045D9004131DC /* AppManager.swift */,
 				F311EFDE21104B12004131DC /* DaysCell.swift */,
+				F311EFE0211068DB004131DC /* Constants.swift */,
 			);
 			path = SBCalendar;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				F311EFA621102105004131DC /* AppDelegate.swift in Sources */,
 				F311EFD921103F06004131DC /* WeekdaysView.swift in Sources */,
 				F311EFD721102A9B004131DC /* MonthView.swift in Sources */,
+				F311EFE1211068DB004131DC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

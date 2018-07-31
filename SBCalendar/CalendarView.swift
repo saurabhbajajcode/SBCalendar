@@ -60,8 +60,22 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         if indexPath.row < firstWeekdayOfTheMonth - 1 {
             cell.isHidden = true
         } else {
+            let day = indexPath.row - firstWeekdayOfTheMonth + 2
             cell.isHidden = false
-            cell.dayLabel.text = "\(indexPath.row - firstWeekdayOfTheMonth + 2)"
+            cell.dayLabel.text = "\(day)"
+            if day < todaysDay && currentMonthIndex == presentMonthIndex && currentYear == presentYear {
+                cell.isUserInteractionEnabled = false
+                cell.dayLabel.backgroundColor = Constants.pastDateBackgroundColor
+                cell.dayLabel.textColor = Constants.pastDateTextColor
+            } else if day == todaysDay && currentMonthIndex == presentMonthIndex && currentYear == presentYear {
+                cell.isUserInteractionEnabled = true
+                cell.dayLabel.backgroundColor = Constants.todaysDateBackgroundColor
+                cell.dayLabel.textColor = Constants.todaysDateTextColor
+            } else {
+                cell.isUserInteractionEnabled = true
+                cell.dayLabel.backgroundColor = Constants.futureDateBackgroundColor
+                cell.dayLabel.textColor = Constants.futureDateTextColor
+            }
         }
         return cell
     }

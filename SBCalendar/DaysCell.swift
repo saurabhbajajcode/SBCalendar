@@ -11,4 +11,13 @@ import UIKit
 class DaysCell: UICollectionViewCell {
     
     @IBOutlet weak var dayLabel: UILabel!
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.dayLabel.layer.cornerRadius = self.frame.height/2
+    }
 }
