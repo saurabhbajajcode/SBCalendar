@@ -23,6 +23,7 @@ class EventsListViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupNavigationBar()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,5 +33,30 @@ class EventsListViewController: UIViewController {
 
     func setSelectedDate(date: Date) {
         self.selectedDate = date
+    }
+
+    // MARK: callbacks
+    @objc private func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func addEventButtonTapped() {
+        self.performSegue(withIdentifier: "showAddEventScene", sender: self)
+    }
+
+    // MARK: helpers
+    func setupNavigationBar() {
+        self.navigationItem.backBarButtonItem = nil
+
+        // back button
+        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        backButton.setImage(#imageLiteral(resourceName: "leftDark"), for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        let backBarButton = UIBarButtonItem(customView: backButton)
+        self.navigationItem.leftBarButtonItem = backBarButton
+
+        // add event button
+        let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEventButtonTapped))
+        self.navigationItem.rightBarButtonItem = addBarButton
     }
 }

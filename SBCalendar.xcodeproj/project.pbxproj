@@ -22,6 +22,7 @@
 		F311EFDF21104B12004131DC /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDE21104B12004131DC /* DaysCell.swift */; };
 		F311EFE1211068DB004131DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFE0211068DB004131DC /* Constants.swift */; };
 		F3E2005A211182340091E3DB /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E20059211182340091E3DB /* EventsListViewController.swift */; };
+		F3E2005D2111B7B70091E3DB /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F311EFDE21104B12004131DC /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
 		F311EFE0211068DB004131DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F3E20059211182340091E3DB /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		F311EFA421102105004131DC /* SBCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				F3E2005B2111B7A30091E3DB /* Add Events */,
 				F3E20058211182150091E3DB /* EventsList */,
 				F311EFA521102105004131DC /* AppDelegate.swift */,
 				F311EFA721102105004131DC /* ViewController.swift */,
@@ -155,6 +158,14 @@
 				F3E20059211182340091E3DB /* EventsListViewController.swift */,
 			);
 			path = EventsList;
+			sourceTree = "<group>";
+		};
+		F3E2005B2111B7A30091E3DB /* Add Events */ = {
+			isa = PBXGroup;
+			children = (
+				F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */,
+			);
+			path = "Add Events";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 				F311EFA821102105004131DC /* ViewController.swift in Sources */,
 				F311EFDB21103F63004131DC /* CalendarView.swift in Sources */,
 				F311EFA621102105004131DC /* AppDelegate.swift in Sources */,
+				F3E2005D2111B7B70091E3DB /* AddEventViewController.swift in Sources */,
 				F311EFD921103F06004131DC /* WeekdaysView.swift in Sources */,
 				F311EFD721102A9B004131DC /* MonthView.swift in Sources */,
 				F311EFE1211068DB004131DC /* Constants.swift in Sources */,
