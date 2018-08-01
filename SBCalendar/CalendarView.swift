@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol CalendarViewDelegate: class {
+    func didSelectDate(day: Int, month: Int, year: Int)
+}
+
 class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var monthView: MonthView!
     @IBOutlet weak var weekdaysView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    var delegate: CalendarViewDelegate?
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     var presentMonthIndex = 0
     var presentYear = 0
@@ -81,7 +86,11 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text)
+        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text as Any)
+        if let dayString = (collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text, dayString.isEmpty == false {
+            let day = (dayString as NSString).integerValue
+            self.delegate?.didSelectDate(day: day, month: currentMonthIndex, year: currentYear)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

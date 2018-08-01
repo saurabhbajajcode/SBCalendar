@@ -21,6 +21,7 @@
 		F311EFDD211045D9004131DC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDC211045D9004131DC /* AppManager.swift */; };
 		F311EFDF21104B12004131DC /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDE21104B12004131DC /* DaysCell.swift */; };
 		F311EFE1211068DB004131DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFE0211068DB004131DC /* Constants.swift */; };
+		F3E2005A211182340091E3DB /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E20059211182340091E3DB /* EventsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		F311EFDC211045D9004131DC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		F311EFDE21104B12004131DC /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
 		F311EFE0211068DB004131DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F3E20059211182340091E3DB /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		F311EFA421102105004131DC /* SBCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				F3E20058211182150091E3DB /* EventsList */,
 				F311EFA521102105004131DC /* AppDelegate.swift */,
 				F311EFA721102105004131DC /* ViewController.swift */,
 				F311EFA921102105004131DC /* Main.storyboard */,
@@ -144,6 +147,14 @@
 				F311EFCA21102107004131DC /* Info.plist */,
 			);
 			path = SBCalendarUITests;
+			sourceTree = "<group>";
+		};
+		F3E20058211182150091E3DB /* EventsList */ = {
+			isa = PBXGroup;
+			children = (
+				F3E20059211182340091E3DB /* EventsListViewController.swift */,
+			);
+			path = EventsList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F311EFDD211045D9004131DC /* AppManager.swift in Sources */,
+				F3E2005A211182340091E3DB /* EventsListViewController.swift in Sources */,
 				F311EFAE21102105004131DC /* SBCalendar.xcdatamodeld in Sources */,
 				F311EFDF21104B12004131DC /* DaysCell.swift in Sources */,
 				F311EFA821102105004131DC /* ViewController.swift in Sources */,

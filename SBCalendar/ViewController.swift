@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        (self.view as? CalendarView)?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,3 +37,14 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: CalendarViewDelegate {
+    func didSelectDate(day: Int, month: Int, year: Int) {
+        // show events list view controller
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let eventsListVC = storyBoard.instantiateViewController(withIdentifier: "eventsListScene") as! EventsListViewController
+        let selectedDate = "\(day)-\(month+1)-\(year)".date
+        print(selectedDate)
+        eventsListVC.setSelectedDate(date: selectedDate!)
+        self.navigationController?.pushViewController(eventsListVC, animated: true)
+    }
+}
