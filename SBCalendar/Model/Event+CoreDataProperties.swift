@@ -20,6 +20,23 @@ extension Event {
     @NSManaged public var agenda: String?
     @NSManaged public var date: String?
     @NSManaged public var time: String?
-    @NSManaged public var participants: Participant?
+    @NSManaged public var participants: NSSet?
+
+}
+
+// MARK: Generated accessors for participants
+extension Event {
+
+    @objc(addParticipantsObject:)
+    @NSManaged public func addToParticipants(_ value: Participant)
+
+    @objc(removeParticipantsObject:)
+    @NSManaged public func removeFromParticipants(_ value: Participant)
+
+    @objc(addParticipants:)
+    @NSManaged public func addToParticipants(_ values: NSSet)
+
+    @objc(removeParticipants:)
+    @NSManaged public func removeFromParticipants(_ values: NSSet)
 
 }

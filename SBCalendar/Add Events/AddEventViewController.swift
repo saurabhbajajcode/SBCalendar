@@ -26,10 +26,15 @@ class AddEventViewController: UIViewController {
 
 extension AddEventViewController: AddEventViewDelegate {
     func saveNewEvent(eventDetails: [String : String]) {
+        let event = Event.createNewEvent(withDetails: eventDetails[EventDetailsKeys.agenda.rawValue]!)
+        event.date = eventDetails[EventDetailsKeys.date.rawValue]
+        event.time = eventDetails[EventDetailsKeys.time.rawValue]
+
         let participantsString = eventDetails[EventDetailsKeys.participants.rawValue]
         let participantsArray = participantsString?.components(separatedBy: ", ")
         for participantEmail in participantsArray! {
-            let _ = Participant.insertParticipant(withEmail: participantEmail)
+            let participant = Participant.insertParticipant(withEmail: participantEmail)
+            participant.events = NSSet(set: (participant.events?.adding(event))!)
         }
         Appmanager.appDelegate.saveContext()
     }
