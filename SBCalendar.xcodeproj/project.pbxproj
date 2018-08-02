@@ -23,6 +23,7 @@
 		F311EFE1211068DB004131DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFE0211068DB004131DC /* Constants.swift */; };
 		F3E2005A211182340091E3DB /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E20059211182340091E3DB /* EventsListViewController.swift */; };
 		F3E2005D2111B7B70091E3DB /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */; };
+		F3E2005F2111CAF70091E3DB /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2005E2111CAF70091E3DB /* AddEventView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F311EFE0211068DB004131DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F3E20059211182340091E3DB /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		F3E2005E2111CAF70091E3DB /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */,
+				F3E2005E2111CAF70091E3DB /* AddEventView.swift */,
 			);
 			path = "Add Events";
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				F311EFA821102105004131DC /* ViewController.swift in Sources */,
 				F311EFDB21103F63004131DC /* CalendarView.swift in Sources */,
 				F311EFA621102105004131DC /* AppDelegate.swift in Sources */,
+				F3E2005F2111CAF70091E3DB /* AddEventView.swift in Sources */,
 				F3E2005D2111B7B70091E3DB /* AddEventViewController.swift in Sources */,
 				F311EFD921103F06004131DC /* WeekdaysView.swift in Sources */,
 				F311EFD721102A9B004131DC /* MonthView.swift in Sources */,

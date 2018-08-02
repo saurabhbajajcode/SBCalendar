@@ -22,6 +22,13 @@ extension String {
     var date: Date? {
         return String.dateFormatter.date(from: self)
     }
+
+    func isValidEmail() -> Bool {
+        let emailRegEx = "^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$"
+        let emailTestPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        let result = emailTestPredicate.evaluate(with: self)
+        return result
+    }
 }
 
 extension Date {
