@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddEventViewDelegate: class {
+    func saveNewEvent(eventDetails: [String: String])
+}
+
 class AddEventView: UIView {
 
     @IBOutlet weak var agendaTextField: UITextField!
@@ -20,22 +24,45 @@ class AddEventView: UIView {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
 
+    var delegate: AddEventViewDelegate?
+
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        updateDateAndTimeTextFields(picker: self.dateAndTimePicker)
         self.dateAndTimePickerTopConstraint.constant = 0
     }
 
     @IBAction func didChangeSelectedDateOrTime(_ sender: UIDatePicker) {
-        if sender.datePickerMode == .date {
-            let date = sender.date
-            self.dateTextField.text = DateFormatter.localizedString(from: date, dateStyle: .long, timeStyle: .none)
-        } else if sender.datePickerMode == .time {
-            let date = sender.date
-            self.timeTextField.text = DateFormatter.localizedString(from: date, dateStyle: .none, timeStyle: .short)
-        }
+        updateDateAndTimeTextFields(picker: sender)
     }
 
     @IBAction func didEndSelectingDateAndTime(_ sender: UIDatePicker) {
         print(sender.date)
+    }
+
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let agenda = agendaTextField.text, agenda.isEmpty == false else {
+            self.showToast(message: "Please, enter agenda.")
+            return
+        }
+        guard let participants = participantsTextView.text, participants.isEmpty == false else {
+            self.showToast(message: "Please, enter participants.")
+            return
+        }
+        guard let date = dateTextField.text, date.isEmpty == false else {
+            self.showToast(message: "Please, enter event date.")
+            return
+        }
+        guard let time = timeTextField.text, time.isEmpty == false else {
+            self.showToast(message: "Please, enter event time.")
+            return
+        }
+        let eventDict = [
+            "agenda": agenda,
+            "participants": participants,
+            "eventDate": date,
+            "eventTime": time
+        ]
+        self.delegate?.saveNewEvent(eventDetails: eventDict)
     }
 
     override func awakeFromNib() {
@@ -45,6 +72,17 @@ class AddEventView: UIView {
         participantsTextView.textContainerInset = UIEdgeInsets.zero
         participantsTextView.textContainer.lineFragmentPadding = 0
         participantsTextViewHeightConstraint.constant = 0
+    }
+
+    // MARK: helpers
+    private func updateDateAndTimeTextFields(picker: UIDatePicker) {
+        if picker.datePickerMode == .date {
+            let date = picker.date
+            self.dateTextField.text = DateFormatter.localizedString(from: date, dateStyle: .long, timeStyle: .none)
+        } else if picker.datePickerMode == .time {
+            let date = picker.date
+            self.timeTextField.text = DateFormatter.localizedString(from: date, dateStyle: .none, timeStyle: .short)
+        }
     }
 }
 

@@ -14,12 +14,18 @@ class AddEventViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        (self.view as? AddEventView)?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-    
+extension AddEventViewController: AddEventViewDelegate {
+    func saveNewEvent(eventDetails: [String : String]) {
+        
+    }
 }
