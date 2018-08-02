@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Appmanager: NSObject {
-
+    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
 }
 
 extension String {

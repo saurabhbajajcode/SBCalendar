@@ -8,14 +8,19 @@
 
 import UIKit
 
-class Constants: NSObject {
+let kTodaysDateTextColor = UIColor.white
+let kTodaysDateBackgroundColor = UIColor.red
 
-    static var todaysDateTextColor = UIColor.white
-    static var todaysDateBackgroundColor = UIColor.red
+let kFutureDateTextColor = UIColor.darkText
+let kFutureDateBackgroundColor = UIColor.white
 
-    static var futureDateTextColor = UIColor.darkText
-    static var futureDateBackgroundColor = UIColor.white
+let kPastDateTextColor = UIColor.gray
+let kPastDateBackgroundColor = UIColor.white
 
-    static var pastDateTextColor = UIColor.gray
-    static var pastDateBackgroundColor = UIColor.white
+enum EventDetailsKeys: String {
+    case agenda = "agenda"
+    case participants = "participants"
+    case date = "eventDate"
+    case time = "eventTime"
+    case email = "email"
 }

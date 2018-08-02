@@ -89,11 +89,13 @@ class AddEventView: UIView {
 extension AddEventView: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 3 {
+            self.endEditing(true)
             self.dateAndTimePickerTopConstraint.constant = -self.dateAndTimePicker.frame.height
             self.dateAndTimePicker.datePickerMode = .date
             self.dateAndTimePicker.minimumDate = Date()
             return false
         } else if textField.tag == 4 {
+            self.endEditing(true)
             self.dateAndTimePickerTopConstraint.constant = -self.dateAndTimePicker.frame.height
             self.dateAndTimePicker.datePickerMode = .time
             self.dateAndTimePicker.minimumDate = Date()

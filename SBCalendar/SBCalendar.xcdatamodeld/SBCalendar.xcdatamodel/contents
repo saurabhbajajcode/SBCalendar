@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="agenda" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="participants" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Participant" inverseName="events" inverseEntity="Participant" syncable="YES"/>
+    </entity>
+    <entity name="Participant" representedClassName="Participant" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="participants" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Participant" positionX="-54" positionY="18" width="128" height="75"/>
+    </elements>
 </model>
