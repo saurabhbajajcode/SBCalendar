@@ -131,21 +131,17 @@
 		F311EFA421102105004131DC /* SBCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				F3C7C8F82114305900B00D8A /* Calendar */,
 				F333ED002112E22600E73CAB /* Model */,
 				F3E2005B2111B7A30091E3DB /* Add Events */,
 				F3E20058211182150091E3DB /* EventsList */,
 				F311EFA521102105004131DC /* AppDelegate.swift */,
-				F311EFA721102105004131DC /* ViewController.swift */,
 				F311EFA921102105004131DC /* Main.storyboard */,
 				F311EFAF21102107004131DC /* Assets.xcassets */,
 				F311EFB121102107004131DC /* LaunchScreen.storyboard */,
 				F311EFB421102107004131DC /* Info.plist */,
 				F311EFAC21102105004131DC /* SBCalendar.xcdatamodeld */,
-				F311EFD621102A9B004131DC /* MonthView.swift */,
-				F311EFD821103F06004131DC /* WeekdaysView.swift */,
-				F311EFDA21103F63004131DC /* CalendarView.swift */,
 				F311EFDC211045D9004131DC /* AppManager.swift */,
-				F311EFDE21104B12004131DC /* DaysCell.swift */,
 				F311EFE0211068DB004131DC /* Constants.swift */,
 				F333ED092112E43D00E73CAB /* CoreDataManager.swift */,
 			);
@@ -179,6 +175,18 @@
 				F333ED042112E24200E73CAB /* Event+CoreDataProperties.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F3C7C8F82114305900B00D8A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				F311EFA721102105004131DC /* ViewController.swift */,
+				F311EFDA21103F63004131DC /* CalendarView.swift */,
+				F311EFD621102A9B004131DC /* MonthView.swift */,
+				F311EFD821103F06004131DC /* WeekdaysView.swift */,
+				F311EFDE21104B12004131DC /* DaysCell.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		F3E20058211182150091E3DB /* EventsList */ = {

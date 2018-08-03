@@ -153,16 +153,32 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CF-RU-a8G">
+                                                            <rect key="frame" x="21" y="38" width="8" height="8"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="8" id="dbm-Az-AXo"/>
+                                                                <constraint firstAttribute="width" secondItem="0CF-RU-a8G" secondAttribute="height" multiplier="1:1" id="ska-1F-502"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="jNV-re-V4K" secondAttribute="bottom" id="AcP-pA-GP5"/>
                                                     <constraint firstItem="jNV-re-V4K" firstAttribute="top" secondItem="iJj-Ix-yde" secondAttribute="top" id="PNG-UV-SO2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="0CF-RU-a8G" secondAttribute="bottom" constant="4" id="ULe-gm-xn3"/>
+                                                    <constraint firstItem="0CF-RU-a8G" firstAttribute="centerX" secondItem="iJj-Ix-yde" secondAttribute="centerX" id="VqE-y0-BkG"/>
                                                     <constraint firstAttribute="trailing" secondItem="jNV-re-V4K" secondAttribute="trailing" id="soo-4G-GYJ"/>
                                                     <constraint firstItem="jNV-re-V4K" firstAttribute="leading" secondItem="iJj-Ix-yde" secondAttribute="leading" id="vbN-zW-Gn3"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="dayLabel" destination="jNV-re-V4K" id="70J-tX-Fjw"/>
+                                                    <outlet property="eventIndicatorView" destination="0CF-RU-a8G" id="IgA-cI-8Px"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
