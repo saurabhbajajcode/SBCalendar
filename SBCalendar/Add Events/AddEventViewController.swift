@@ -22,6 +22,11 @@ class AddEventViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: helper methods
+    private func navigateToEventsList() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension AddEventViewController: AddEventViewDelegate {
@@ -37,5 +42,7 @@ extension AddEventViewController: AddEventViewDelegate {
             participant.events = NSSet(set: (participant.events?.adding(event))!)
         }
         Appmanager.appDelegate.saveContext()
+        Appmanager.showToast(message: "Event saved.")
+        self.navigateToEventsList()
     }
 }

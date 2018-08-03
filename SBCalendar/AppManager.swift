@@ -11,6 +11,10 @@ import UIKit
 
 class Appmanager: NSObject {
     static let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    class func showToast(message: String) {
+        appDelegate.window?.rootViewController?.view.showToast(message: message)
+    }
 }
 
 extension String {
@@ -55,7 +59,7 @@ extension UIView {
         toastLabel.layer.cornerRadius = 10;
         toastLabel.clipsToBounds  =  true
         self.addSubview(toastLabel)
-        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 3.5, delay: 0.5, options: .curveEaseOut, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()

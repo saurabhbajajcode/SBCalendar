@@ -66,7 +66,8 @@ class EventsListViewController: UIViewController {
     }
 
     private func fetchEventsList() {
-        let events = Event.getAllEvents()
+        let dateString = DateFormatter.localizedString(from: selectedDate, dateStyle: .long, timeStyle: .none)
+        let events = Event.getEvents(forDate: dateString)
         (self.view as? EventsListView)?.setDataSource(dataSource: events)
     }
 }

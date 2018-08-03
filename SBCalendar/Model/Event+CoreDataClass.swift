@@ -29,6 +29,21 @@ public class Event: NSManagedObject {
         return []
     }
 
+    class func getEvents(forDate dateString: String) -> [Event] {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+        let predicate = NSPredicate(format: "date == %@", dateString)
+        fetchRequest.predicate = predicate
+        do {
+            let result = try CoreDataManager.context.fetch(fetchRequest)
+            if let events = result as? [Event] {
+                return events
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return []
+    }
+
     class func createNewEvent(withDetails agenda: String) -> Event {
         let newObject = getNewEventObject()
         newObject.agenda = agenda
