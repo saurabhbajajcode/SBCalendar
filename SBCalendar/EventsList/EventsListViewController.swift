@@ -67,8 +67,6 @@ class EventsListViewController: UIViewController {
 
     private func fetchEventsList() {
         let events = Event.getAllEvents()
-        if !events.isEmpty {
-            print("EVENTS: \n", events)
-        }
+        (self.view as? EventsListView)?.setDataSource(dataSource: events)
     }
 }
