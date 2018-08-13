@@ -47,7 +47,6 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 
     private func getFirstDayOfTheMonth() -> Int {
         let day = ("01-\(currentMonthIndex+1)-\(currentYear)".date?.firstDayOfTheMonth.weekday)!
-        print(day == 8 ? 1 : day)
         return day == 8 ? 1 : day
     }
 

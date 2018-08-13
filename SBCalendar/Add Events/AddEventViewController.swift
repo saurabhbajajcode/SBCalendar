@@ -30,10 +30,10 @@ class AddEventViewController: UIViewController {
 }
 
 extension AddEventViewController: AddEventViewDelegate {
-    func saveNewEvent(eventDetails: [String : String]) {
-        let event = Event.createNewEvent(withDetails: eventDetails[EventDetailsKeys.agenda.rawValue]!)
-        event.date = eventDetails[EventDetailsKeys.date.rawValue]
-        event.time = eventDetails[EventDetailsKeys.time.rawValue]
+    func saveNewEvent(eventDetails: [String : AnyObject]) {
+        let event = Event.createNewEvent(withDetails: eventDetails[EventDetailsKeys.agenda.rawValue] as! String)
+        event.date = eventDetails[EventDetailsKeys.date.rawValue] as? Date
+        event.time = eventDetails[EventDetailsKeys.time.rawValue] as? String
 
         let participantsString = eventDetails[EventDetailsKeys.participants.rawValue]
         let participantsArray = participantsString?.components(separatedBy: ", ")

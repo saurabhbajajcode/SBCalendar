@@ -29,9 +29,9 @@ public class Event: NSManagedObject {
         return []
     }
 
-    class func getEvents(forDate dateString: String) -> [Event] {
+    class func getEvents(forDate dateString: Date) -> [Event] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
-        let predicate = NSPredicate(format: "date == %@", dateString)
+        let predicate = NSPredicate(format: "date > %@", dateString as CVarArg)
         fetchRequest.predicate = predicate
         do {
             let result = try CoreDataManager.context.fetch(fetchRequest)

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddEventViewDelegate: class {
-    func saveNewEvent(eventDetails: [String: String])
+    func saveNewEvent(eventDetails: [String: AnyObject])
 }
 
 class AddEventView: UIView {
@@ -25,6 +25,7 @@ class AddEventView: UIView {
     @IBOutlet weak var timeTextField: UITextField!
 
     var delegate: AddEventViewDelegate?
+    var selectedEventDate: Date!
 
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         updateDateAndTimeTextFields(picker: self.dateAndTimePicker)
@@ -48,7 +49,7 @@ class AddEventView: UIView {
             self.showToast(message: "Please, enter participants.")
             return
         }
-        guard let date = dateTextField.text, date.isEmpty == false else {
+        guard let dateString = dateTextField.text, dateString.isEmpty == false else {
             self.showToast(message: "Please, enter event date.")
             return
         }
@@ -56,11 +57,11 @@ class AddEventView: UIView {
             self.showToast(message: "Please, enter event time.")
             return
         }
-        let eventDict = [
-            "agenda": agenda,
-            "participants": participants,
-            "eventDate": date,
-            "eventTime": time
+        let eventDict: [String: AnyObject] = [
+            "agenda": agenda as AnyObject,
+            "participants": participants as AnyObject,
+            "eventDate": selectedEventDate as AnyObject,
+            "eventTime": time as AnyObject
         ]
         self.delegate?.saveNewEvent(eventDetails: eventDict)
     }
@@ -78,6 +79,7 @@ class AddEventView: UIView {
     private func updateDateAndTimeTextFields(picker: UIDatePicker) {
         if picker.datePickerMode == .date {
             let date = picker.date
+            self.selectedEventDate = date
             self.dateTextField.text = DateFormatter.localizedString(from: date, dateStyle: .long, timeStyle: .none)
         } else if picker.datePickerMode == .time {
             let date = picker.date

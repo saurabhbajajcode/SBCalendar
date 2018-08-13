@@ -2,7 +2,7 @@
 //  Event+CoreDataProperties.swift
 //  SBCalendar
 //
-//  Created by Promobi on 02/08/18.
+//  Created by Saurabh on 10/08/18.
 //  Copyright © 2018 Saurabh. All rights reserved.
 //
 //
@@ -18,7 +18,7 @@ extension Event {
     }
 
     @NSManaged public var agenda: String?
-    @NSManaged public var date: String?
+    @NSManaged public var date: Date?
     @NSManaged public var time: String?
     @NSManaged public var participants: NSSet?
 
