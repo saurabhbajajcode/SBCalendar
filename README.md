@@ -10,6 +10,7 @@
 • When user clicks on a day, a list of events on that day is displayed. On top-right corner of the screen there
   is an add button which allows user to add an event.
 
+
 STEPS TO RUN THE PROJECT
 • Dowload zip(https://github.com/saurabhbajajcode/SBCalendar/archive/master.zip) of the project.
 
