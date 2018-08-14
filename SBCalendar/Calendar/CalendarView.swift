@@ -47,7 +47,6 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 
     private func getFirstDayOfTheMonth() -> Int {
         let day = ("01-\(currentMonthIndex+1)-\(currentYear)".date?.firstDayOfTheMonth.weekday)!
-        print(day == 8 ? 1 : day)
         return day == 8 ? 1 : day
     }
 
@@ -70,16 +69,16 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             cell.dayLabel.text = "\(day)"
             if day < todaysDay && currentMonthIndex == presentMonthIndex && currentYear == presentYear {
                 cell.isUserInteractionEnabled = false
-                cell.dayLabel.backgroundColor = Constants.pastDateBackgroundColor
-                cell.dayLabel.textColor = Constants.pastDateTextColor
+                cell.dayLabel.backgroundColor = kPastDateBackgroundColor
+                cell.dayLabel.textColor = kPastDateTextColor
             } else if day == todaysDay && currentMonthIndex == presentMonthIndex && currentYear == presentYear {
                 cell.isUserInteractionEnabled = true
-                cell.dayLabel.backgroundColor = Constants.todaysDateBackgroundColor
-                cell.dayLabel.textColor = Constants.todaysDateTextColor
+                cell.dayLabel.backgroundColor = kTodaysDateBackgroundColor
+                cell.dayLabel.textColor = kTodaysDateTextColor
             } else {
                 cell.isUserInteractionEnabled = true
-                cell.dayLabel.backgroundColor = Constants.futureDateBackgroundColor
-                cell.dayLabel.textColor = Constants.futureDateTextColor
+                cell.dayLabel.backgroundColor = kFutureDateBackgroundColor
+                cell.dayLabel.textColor = kFutureDateTextColor
             }
         }
         return cell

@@ -21,6 +21,13 @@
 		F311EFDD211045D9004131DC /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDC211045D9004131DC /* AppManager.swift */; };
 		F311EFDF21104B12004131DC /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFDE21104B12004131DC /* DaysCell.swift */; };
 		F311EFE1211068DB004131DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F311EFE0211068DB004131DC /* Constants.swift */; };
+		F333ED052112E24200E73CAB /* Participant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED012112E24200E73CAB /* Participant+CoreDataClass.swift */; };
+		F333ED062112E24200E73CAB /* Participant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED022112E24200E73CAB /* Participant+CoreDataProperties.swift */; };
+		F333ED072112E24200E73CAB /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED032112E24200E73CAB /* Event+CoreDataClass.swift */; };
+		F333ED082112E24200E73CAB /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED042112E24200E73CAB /* Event+CoreDataProperties.swift */; };
+		F333ED0A2112E43D00E73CAB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED092112E43D00E73CAB /* CoreDataManager.swift */; };
+		F333ED0C211335C500E73CAB /* EventsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED0B211335C500E73CAB /* EventsListTableViewCell.swift */; };
+		F333ED0E211338A000E73CAB /* EventsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333ED0D211338A000E73CAB /* EventsListView.swift */; };
 		F3E2005A211182340091E3DB /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E20059211182340091E3DB /* EventsListViewController.swift */; };
 		F3E2005D2111B7B70091E3DB /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */; };
 		F3E2005F2111CAF70091E3DB /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E2005E2111CAF70091E3DB /* AddEventView.swift */; };
@@ -64,6 +71,13 @@
 		F311EFDC211045D9004131DC /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		F311EFDE21104B12004131DC /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
 		F311EFE0211068DB004131DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F333ED012112E24200E73CAB /* Participant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F333ED022112E24200E73CAB /* Participant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F333ED032112E24200E73CAB /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F333ED042112E24200E73CAB /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F333ED092112E43D00E73CAB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F333ED0B211335C500E73CAB /* EventsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListTableViewCell.swift; sourceTree = "<group>"; };
+		F333ED0D211338A000E73CAB /* EventsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListView.swift; sourceTree = "<group>"; };
 		F3E20059211182340091E3DB /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		F3E2005C2111B7B70091E3DB /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		F3E2005E2111CAF70091E3DB /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
@@ -117,21 +131,19 @@
 		F311EFA421102105004131DC /* SBCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				F3C7C8F82114305900B00D8A /* Calendar */,
+				F333ED002112E22600E73CAB /* Model */,
 				F3E2005B2111B7A30091E3DB /* Add Events */,
 				F3E20058211182150091E3DB /* EventsList */,
 				F311EFA521102105004131DC /* AppDelegate.swift */,
-				F311EFA721102105004131DC /* ViewController.swift */,
 				F311EFA921102105004131DC /* Main.storyboard */,
 				F311EFAF21102107004131DC /* Assets.xcassets */,
 				F311EFB121102107004131DC /* LaunchScreen.storyboard */,
 				F311EFB421102107004131DC /* Info.plist */,
 				F311EFAC21102105004131DC /* SBCalendar.xcdatamodeld */,
-				F311EFD621102A9B004131DC /* MonthView.swift */,
-				F311EFD821103F06004131DC /* WeekdaysView.swift */,
-				F311EFDA21103F63004131DC /* CalendarView.swift */,
 				F311EFDC211045D9004131DC /* AppManager.swift */,
-				F311EFDE21104B12004131DC /* DaysCell.swift */,
 				F311EFE0211068DB004131DC /* Constants.swift */,
+				F333ED092112E43D00E73CAB /* CoreDataManager.swift */,
 			);
 			path = SBCalendar;
 			sourceTree = "<group>";
@@ -154,10 +166,35 @@
 			path = SBCalendarUITests;
 			sourceTree = "<group>";
 		};
+		F333ED002112E22600E73CAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F333ED012112E24200E73CAB /* Participant+CoreDataClass.swift */,
+				F333ED022112E24200E73CAB /* Participant+CoreDataProperties.swift */,
+				F333ED032112E24200E73CAB /* Event+CoreDataClass.swift */,
+				F333ED042112E24200E73CAB /* Event+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F3C7C8F82114305900B00D8A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				F311EFA721102105004131DC /* ViewController.swift */,
+				F311EFDA21103F63004131DC /* CalendarView.swift */,
+				F311EFD621102A9B004131DC /* MonthView.swift */,
+				F311EFD821103F06004131DC /* WeekdaysView.swift */,
+				F311EFDE21104B12004131DC /* DaysCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		F3E20058211182150091E3DB /* EventsList */ = {
 			isa = PBXGroup;
 			children = (
 				F3E20059211182340091E3DB /* EventsListViewController.swift */,
+				F333ED0D211338A000E73CAB /* EventsListView.swift */,
+				F333ED0B211335C500E73CAB /* EventsListTableViewCell.swift */,
 			);
 			path = EventsList;
 			sourceTree = "<group>";
@@ -304,14 +341,21 @@
 			files = (
 				F311EFDD211045D9004131DC /* AppManager.swift in Sources */,
 				F3E2005A211182340091E3DB /* EventsListViewController.swift in Sources */,
+				F333ED052112E24200E73CAB /* Participant+CoreDataClass.swift in Sources */,
+				F333ED062112E24200E73CAB /* Participant+CoreDataProperties.swift in Sources */,
+				F333ED0A2112E43D00E73CAB /* CoreDataManager.swift in Sources */,
 				F311EFAE21102105004131DC /* SBCalendar.xcdatamodeld in Sources */,
 				F311EFDF21104B12004131DC /* DaysCell.swift in Sources */,
+				F333ED082112E24200E73CAB /* Event+CoreDataProperties.swift in Sources */,
 				F311EFA821102105004131DC /* ViewController.swift in Sources */,
+				F333ED072112E24200E73CAB /* Event+CoreDataClass.swift in Sources */,
 				F311EFDB21103F63004131DC /* CalendarView.swift in Sources */,
 				F311EFA621102105004131DC /* AppDelegate.swift in Sources */,
+				F333ED0C211335C500E73CAB /* EventsListTableViewCell.swift in Sources */,
 				F3E2005F2111CAF70091E3DB /* AddEventView.swift in Sources */,
 				F3E2005D2111B7B70091E3DB /* AddEventViewController.swift in Sources */,
 				F311EFD921103F06004131DC /* WeekdaysView.swift in Sources */,
+				F333ED0E211338A000E73CAB /* EventsListView.swift in Sources */,
 				F311EFD721102A9B004131DC /* MonthView.swift in Sources */,
 				F311EFE1211068DB004131DC /* Constants.swift in Sources */,
 			);

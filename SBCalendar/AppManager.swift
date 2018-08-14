@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class Appmanager: NSObject {
+    static let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    class func showToast(message: String) {
+        appDelegate.window?.rootViewController?.view.showToast(message: message)
+    }
 }
 
 extension String {
@@ -38,5 +43,26 @@ extension Date {
 
     var firstDayOfTheMonth: Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.month, .year], from: self))!
+    }
+}
+
+extension UIView {
+    func showToast(message : String) {
+        let toastLabel = UILabel(frame: CGRect(x: 50, y: 120, width: self.frame.size.width - 100, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center
+        toastLabel.numberOfLines = 0
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.addSubview(toastLabel)
+        UIView.animate(withDuration: 3.5, delay: 0.5, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
 }
