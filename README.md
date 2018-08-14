@@ -8,7 +8,7 @@
   is an add button which allows user to add an event.
 
 STEPS TO RUN THE PROJECT
-• Dowload zip of the project.
+• Dowload zip(https://github.com/saurabhbajajcode/SBCalendar/archive/master.zip) of the project.
 • Unzip it.
 • Open "SBCalendar.xcodeproj" file.
 • Selector any suitable simulator in Xcode.
