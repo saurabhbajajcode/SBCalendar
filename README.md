@@ -12,6 +12,7 @@
 
 
 STEPS TO RUN THE PROJECT
+
 • Dowload zip(https://github.com/saurabhbajajcode/SBCalendar/archive/master.zip) of the project.
 
 • Unzip it.
