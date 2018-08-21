@@ -10,12 +10,14 @@ import UIKit
 
 class AddEventViewController: UIViewController {
 
+    var selectedDate: Date!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
         (self.view as? AddEventView)?.delegate = self
+        (self.view as? AddEventView)?.selectedEventDate = self.selectedDate
     }
 
     override func didReceiveMemoryWarning() {

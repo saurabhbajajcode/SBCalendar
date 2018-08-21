@@ -49,6 +49,13 @@ class EventsListViewController: UIViewController {
         self.performSegue(withIdentifier: "showAddEventScene", sender: self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAddEventScene" {
+            let destinationVC = segue.destination as! AddEventViewController
+            destinationVC.selectedDate = self.selectedDate
+        }
+    }
+
     // MARK: helpers
     func setupNavigationBar() {
         self.navigationItem.backBarButtonItem = nil
@@ -67,7 +74,6 @@ class EventsListViewController: UIViewController {
 
     private func fetchEventsList() {
         let events = Event.getEvents(forDate: selectedDate)
-        print("\n\n*****************************************************", events)
         (self.view as? EventsListView)?.setDataSource(dataSource: events)
     }
 }
