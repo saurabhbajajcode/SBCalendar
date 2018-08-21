@@ -28,7 +28,11 @@ class EventsListTableViewCell: UITableViewCell {
         var emailsString = ""
         if let participants = dataSource.participants {
             for participant in  participants.allObjects as! [Participant] {
-                emailsString.append(participant.email!)
+                if emailsString.isEmpty {
+                    emailsString.append(participant.email!)
+                } else {
+                    emailsString.append(", \(participant.email!)")
+                }
             }
             participantsEmailLabel.text = emailsString
         }
