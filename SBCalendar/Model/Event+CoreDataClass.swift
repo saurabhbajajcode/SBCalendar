@@ -31,8 +31,8 @@ public class Event: NSManagedObject {
 
     class func getEvents(forDate date: Date) -> [Event] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
-        let predicate = NSPredicate(format: "date > %@", date as CVarArg)
-        let nextDay = NSCalendar.current.date(byAdding: .day, value: 1, to: date)
+        let predicate = NSPredicate(format: "date >= %@", date as CVarArg)
+        let nextDay = NSCalendar.current.date(byAdding: .day, value: 2, to: date)
         let predicate2 = NSPredicate(format: "date < %@", nextDay! as CVarArg)
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
         fetchRequest.predicate = compoundPredicate
