@@ -10,6 +10,7 @@ import UIKit
 
 protocol CalendarViewDelegate: class {
     func didSelectDate(day: Int, month: Int, year: Int)
+    func getAllEvents(forMonth month: Int, year:Int)
 }
 
 class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -18,7 +19,12 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     @IBOutlet weak var weekdaysView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var delegate: CalendarViewDelegate?
+    var delegate: CalendarViewDelegate? {
+        didSet {
+            self.delegate?.getAllEvents(forMonth: currentMonthIndex+1, year: currentYear)
+        }
+    }
+    private var eventsForCurrentMonth: [Event]?
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     var presentMonthIndex = 0
     var presentYear = 0
@@ -26,11 +32,16 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
     var currentYear = 0
     var todaysDay = 0
     var firstWeekdayOfTheMonth = 0
+    var daysArray: [Int]?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         initialiseSubviews()
         monthView.delegate = self
+    }
+
+    override func willMove(toSuperview newSuperview: UIView?) {
+        self.delegate?.getAllEvents(forMonth: currentMonthIndex+1, year: currentYear)
     }
 
     // MARK: helpers
@@ -50,6 +61,15 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         return day == 8 ? 1 : day
     }
 
+    // MARK: callbacks
+    func showEventIndicators(forEvents events: [Event]) {
+        self.eventsForCurrentMonth = events
+        let datesArray = self.eventsForCurrentMonth?.compactMap({ $0.date })
+        let daysArray = datesArray?.compactMap({ return Calendar.current.component(.day, from: $0) })
+        self.daysArray = daysArray
+        self.collectionView.reloadData()
+    }
+
     // MARK: collection view methods
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -64,18 +84,29 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
         if indexPath.row < firstWeekdayOfTheMonth - 1 {
             cell.isHidden = true
         } else {
-            let day = indexPath.row - firstWeekdayOfTheMonth + 2
             cell.isHidden = false
+            let day = indexPath.row - firstWeekdayOfTheMonth + 2
             cell.dayLabel.text = "\(day)"
+
+            // show event indicator if there is an event scheduled for the day
+            if self.daysArray?.contains(day) == true {
+                cell.eventIndicatorView.isHidden = false
+            } else {
+                cell.eventIndicatorView.isHidden = true
+            }
+
             if day < todaysDay && currentMonthIndex == presentMonthIndex && currentYear == presentYear {
+                // disable user interaction for past dates
                 cell.isUserInteractionEnabled = false
                 cell.dayLabel.backgroundColor = kPastDateBackgroundColor
                 cell.dayLabel.textColor = kPastDateTextColor
             } else if day == todaysDay && currentMonthIndex == presentMonthIndex && currentYear == presentYear {
+                // highlight today's date
                 cell.isUserInteractionEnabled = true
                 cell.dayLabel.backgroundColor = kTodaysDateBackgroundColor
                 cell.dayLabel.textColor = kTodaysDateTextColor
             } else {
+                // show future dates as usual
                 cell.isUserInteractionEnabled = true
                 cell.dayLabel.backgroundColor = kFutureDateBackgroundColor
                 cell.dayLabel.textColor = kFutureDateTextColor
@@ -90,10 +121,6 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
             let day = (dayString as NSString).integerValue
             self.delegate?.didSelectDate(day: day, month: currentMonthIndex, year: currentYear)
         }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print((collectionView.cellForItem(at: indexPath) as! DaysCell).dayLabel.text)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -126,11 +153,14 @@ class CalendarView: UIView, UICollectionViewDataSource, UICollectionViewDelegate
 }
 
 extension CalendarView: MonthViewDelegate {
+    /// updates 
     func didChangeMonth(monthIndex: Int, year:Int) {
         currentYear = year
         currentMonthIndex = monthIndex
         firstWeekdayOfTheMonth = getFirstDayOfTheMonth()
         collectionView.reloadData()
         monthView.leftButton.isEnabled = !(currentYear == presentYear && currentMonthIndex == presentMonthIndex)
+
+        self.delegate?.getAllEvents(forMonth: currentMonthIndex+1, year: currentYear)
     }
 }

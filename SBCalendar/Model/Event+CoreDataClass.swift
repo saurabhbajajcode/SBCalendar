@@ -29,10 +29,33 @@ public class Event: NSManagedObject {
         return []
     }
 
-    class func getEvents(forDate dateString: Date) -> [Event] {
+    class func getEvents(forDate date: Date) -> [Event] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
-        let predicate = NSPredicate(format: "date > %@", dateString as CVarArg)
-        fetchRequest.predicate = predicate
+        let predicate = NSPredicate(format: "date > %@", date as CVarArg)
+        let nextDay = NSCalendar.current.date(byAdding: .day, value: 1, to: date)
+        let predicate2 = NSPredicate(format: "date < %@", nextDay! as CVarArg)
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        fetchRequest.predicate = compoundPredicate
+        do {
+            let result = try CoreDataManager.context.fetch(fetchRequest)
+            if let events = result as? [Event] {
+                return events
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return []
+    }
+
+    class func getEvents(forMonth month: Int, year: Int, date: Date) -> [Event] {
+        let calendar = Calendar.current
+        let startDate = Calendar.current.date(from: DateComponents(calendar: calendar, timeZone: calendar.timeZone, era: nil, year: year, month: month, day: 1, hour: 0, minute: 0, second: 0, nanosecond: 0, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil))
+        let endDate = startDate!.endOfMonth()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Event")
+        let predicate = NSPredicate(format: "date > %@", startDate! as CVarArg)
+        let predicate2 = NSPredicate(format: "date < %@", endDate as CVarArg)
+        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate, predicate2])
+        fetchRequest.predicate = compoundPredicate
         do {
             let result = try CoreDataManager.context.fetch(fetchRequest)
             if let events = result as? [Event] {

@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         (self.view as? CalendarView)?.delegate = self
-        let allEvents = Event.getAllEvents()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,5 +45,10 @@ extension ViewController: CalendarViewDelegate {
         let selectedDate = "\(day)-\(month+1)-\(year)".date
         eventsListVC.setSelectedDate(date: selectedDate!)
         self.navigationController?.pushViewController(eventsListVC, animated: true)
+    }
+
+    func getAllEvents(forMonth month: Int, year: Int) {
+        let events = Event.getEvents(forMonth: month, year: year, date: Date())
+        (self.view as? CalendarView)?.showEventIndicators(forEvents: events)
     }
 }

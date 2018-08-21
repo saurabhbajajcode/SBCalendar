@@ -118,6 +118,7 @@ extension AddEventView: UITextFieldDelegate {
                     textField.text = nil
                     participantsTextViewHeightConstraint.constant = participantsTextView.contentSize.height
                 } else {
+                    self.showToast(message: "Please, enter valid email.")
                     return false
                 }
             }

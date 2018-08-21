@@ -67,6 +67,7 @@ class EventsListViewController: UIViewController {
 
     private func fetchEventsList() {
         let events = Event.getEvents(forDate: selectedDate)
+        print("\n\n*****************************************************", events)
         (self.view as? EventsListView)?.setDataSource(dataSource: events)
     }
 }
