@@ -25,7 +25,11 @@ class AddEventView: UIView {
     @IBOutlet weak var timeTextField: UITextField!
 
     var delegate: AddEventViewDelegate?
-    var selectedEventDate: Date!
+    var selectedEventDate: Date! {
+        didSet {
+            self.dateTextField.text = DateFormatter.localizedString(from: selectedEventDate, dateStyle: .long, timeStyle: .none)
+        }
+    }
 
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         updateDateAndTimeTextFields(picker: self.dateAndTimePicker)
@@ -95,6 +99,7 @@ extension AddEventView: UITextFieldDelegate {
             self.dateAndTimePickerTopConstraint.constant = -self.dateAndTimePicker.frame.height
             self.dateAndTimePicker.datePickerMode = .date
             self.dateAndTimePicker.minimumDate = Date()
+            self.dateAndTimePicker.date = self.selectedEventDate
             return false
         } else if textField.tag == 4 {
             self.endEditing(true)
@@ -118,6 +123,7 @@ extension AddEventView: UITextFieldDelegate {
                     textField.text = nil
                     participantsTextViewHeightConstraint.constant = participantsTextView.contentSize.height
                 } else {
+                    self.showToast(message: "Please, enter valid email.")
                     return false
                 }
             }
